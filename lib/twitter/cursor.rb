@@ -62,6 +62,7 @@ module Twitter
     end
 
     def next_cursor
+      puts @attrs[:next_cursor] || -1
       @attrs[:next_cursor] || -1
     end
     alias next next_cursor
