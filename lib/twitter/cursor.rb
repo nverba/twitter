@@ -62,7 +62,6 @@ module Twitter
     end
 
     def next_cursor
-      puts @attrs[:next_cursor] || -1
       @attrs[:next_cursor] || -1
     end
     alias next next_cursor
@@ -86,6 +85,7 @@ module Twitter
 
     def fetch_next_page
       response = @client.send(@request_method, @path, @options.merge(:cursor => next_cursor))
+      puts next_cursor
       set_attrs(response[:body])
     end
 
